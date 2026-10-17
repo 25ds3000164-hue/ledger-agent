@@ -321,11 +321,11 @@ def answer_question(question):
         metric = "aov"
     elif re.search(r"\bunits?\b|quantity|qty|pieces|items sold", q):
         metric = "units"
-    elif asks_count and re.search(r"customers", q) and "order" not in q:
+    elif re.search(r"(distinct|unique|different)\s+customers|(how many|number of|count of)\s+(distinct\s+|unique\s+|different\s+)?customers", q):
         metric = "distinct_customers"
-    elif asks_count and re.search(r"products", q) and "order" not in q:
+    elif re.search(r"(distinct|unique|different)\s+products|(how many|number of|count of)\s+(distinct\s+|unique\s+|different\s+)?products", q):
         metric = "distinct_products"
-    elif asks_count and re.search(r"regions", q):
+    elif re.search(r"(distinct|unique|different)\s+regions|(how many|number of|count of)\s+(distinct\s+|unique\s+|different\s+)?regions", q):
         metric = "distinct_regions"
     elif asks_count and "order" in q:
         metric = "order_count"
